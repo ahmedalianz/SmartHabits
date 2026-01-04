@@ -1,4 +1,9 @@
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+  FirebaseAuthTypes,
+} from '@react-native-firebase/auth';
 import { StateCreator } from 'zustand';
 import { AppStore } from '..';
 
@@ -8,7 +13,7 @@ export type AuthState = {
   initialize: () => () => void;
   signOut: () => Promise<void>;
 };
-
+const auth = getAuth();
 export const createAuthSlice: StateCreator<
   AppStore,
   [['zustand/immer', never], ['zustand/persist', unknown]],
@@ -18,13 +23,13 @@ export const createAuthSlice: StateCreator<
   user: null,
   isLoading: true,
   initialize: () => {
-    const unsubscribe = auth().onAuthStateChanged(user => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
       set({ user, isLoading: false });
     });
     return unsubscribe;
   },
   signOut: async () => {
-    await auth().signOut();
+    await signOut(auth);
     set({ user: null, isLoading: false });
   },
 });
