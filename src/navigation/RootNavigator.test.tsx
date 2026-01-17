@@ -17,26 +17,22 @@ jest.mock('@/store/selectors/authSelectors', () => ({
 }));
 const lightThemeMock = {
   name: 'light',
-  theme: {
-    colors: {
-      primary: '#000',
-      background: '#111',
-      card: '#222',
-      text: '#fff',
-      border: '#333',
-    },
+  colors: {
+    primary: '#000',
+    background: '#111',
+    card: '#222',
+    text: '#fff',
+    border: '#333',
   },
 };
 const darkThemeMock = {
   name: 'dark',
-  theme: {
-    colors: {
-      primary: '#000',
-      background: '#111',
-      card: '#222',
-      text: '#fff',
-      border: '#333',
-    },
+  colors: {
+    primary: '#000',
+    background: '#111',
+    card: '#222',
+    text: '#fff',
+    border: '#333',
   },
 };
 describe('RootNavigator', () => {
@@ -54,6 +50,7 @@ describe('RootNavigator', () => {
     const { getByTestId } = render(<RootNavigator />);
     expect(getByTestId('navigation-container')).toBeTruthy();
     expect(getByTestId('screen-Login')).toBeTruthy();
+    expect(getByTestId('screen-Register')).toBeTruthy();
   });
   it('should render app stack when authenticated', () => {
     (useAppTheme as jest.Mock).mockReturnValue(lightThemeMock);

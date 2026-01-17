@@ -1,10 +1,13 @@
+import { AppButton, AppContainer } from '@/components';
+import { useSignOut } from '@/store/selectors/authSelectors';
 import React from 'react';
-import { Text, View } from 'react-native';
 const Settings = () => {
+  const signOut = useSignOut();
+
   return (
-    <View>
-      <Text>Settings</Text>
-    </View>
+    <AppContainer>
+      <AppButton title="Logout" onPress={signOut} />
+    </AppContainer>
   );
 };
 

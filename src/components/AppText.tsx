@@ -3,13 +3,10 @@ import { Text, TextProps, StyleSheet } from 'react-native';
 import useAppTheme from '@/hooks/useAppTheme';
 
 const AppText = ({ style, ...props }: TextProps) => {
-  const { theme } = useAppTheme();
+  const { colors } = useAppTheme();
 
   return (
-    <Text
-      style={[styles.default, { color: theme.colors.text }, style]}
-      {...props}
-    />
+    <Text style={[styles.default, { color: colors.text }, style]} {...props} />
   );
 };
 

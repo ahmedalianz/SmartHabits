@@ -15,17 +15,17 @@ import {
 import { useEffect } from 'react';
 
 export default function RootNavigator() {
-  const { name: themeName, theme } = useAppTheme();
+  const { name: themeName, colors } = useAppTheme();
   const navigationTheme = {
     ...(themeName === 'dark' ? DarkTheme : DefaultTheme),
     colors: {
       ...(themeName === 'dark' ? DarkTheme.colors : DefaultTheme.colors),
-      primary: theme.colors.primary,
-      background: theme.colors.background,
-      card: theme.colors.card,
-      text: theme.colors.text,
-      border: theme.colors.border,
-      notification: theme.colors.primary,
+      primary: colors.primary,
+      background: colors.background,
+      card: colors.card,
+      text: colors.text,
+      border: colors.border,
+      notification: colors.primary,
     },
   };
   const user = useUser();
@@ -43,10 +43,10 @@ export default function RootNavigator() {
         testID="loading-screen"
         style={[
           styles.loadingContainer,
-          { backgroundColor: theme.colors.background },
+          { backgroundColor: colors.background },
         ]}
       >
-        <ActivityIndicator size="large" color={theme.colors.primary} />
+        <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
 
@@ -54,7 +54,7 @@ export default function RootNavigator() {
     <>
       <StatusBar
         barStyle={themeName === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={theme.colors.background}
+        backgroundColor={colors.background}
       />
       <NavigationContainer theme={navigationTheme}>
         {user ? <AppStack /> : <AuthStack />}

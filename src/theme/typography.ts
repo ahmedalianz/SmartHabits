@@ -1,12 +1,15 @@
-export const typography = {
-  h1: { fontSize: 28, fontWeight: 'bold' },
-  h2: { fontSize: 22, fontWeight: '600' },
-  h3: { fontSize: 18, fontWeight: '600' },
+import fontWeights from './fontWeights';
+
+const typography = {
+  h1: { fontSize: 28, fontWeight: fontWeights.bold },
+  h2: { fontSize: 22, fontWeight: fontWeights.semibold },
+  h3: { fontSize: 18, fontWeight: fontWeights.semibold },
   body: {
     fontSize: 16,
-    fontWeight: '400',
+    fontWeight: fontWeights.regular,
   },
-  caption: { fontSize: 14, fontWeight: '400' },
-  small: { fontSize: 12, fontWeight: '400' },
+  caption: { fontSize: 14, fontWeight: fontWeights.regular },
+  small: { fontSize: 12, fontWeight: fontWeights.regular },
 };
 export type Typography = keyof typeof typography;
+export default typography;
