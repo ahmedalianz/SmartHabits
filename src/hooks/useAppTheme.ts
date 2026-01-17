@@ -21,7 +21,7 @@ const useAppTheme = () => {
 
   return {
     name: resolvedTheme,
-    theme: theme[resolvedTheme],
+    colors: theme[resolvedTheme],
   };
 };
 

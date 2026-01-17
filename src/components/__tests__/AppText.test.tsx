@@ -5,7 +5,7 @@ jest.mock('@/hooks/useAppTheme', () => ({
   __esModule: true,
   default: () => ({
     name: 'light',
-    theme: { colors: { text: '#000000' } },
+    colors: { text: '#000000' },
   }),
 }));
 

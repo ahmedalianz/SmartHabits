@@ -1,4 +1,4 @@
-export const borderRadius = {
+const borderRadius = {
   sm: 4,
   md: 8,
   lg: 12,
@@ -7,3 +7,4 @@ export const borderRadius = {
 };
 
 export type BorderRadius = keyof typeof borderRadius;
+export default borderRadius;

@@ -1,4 +1,4 @@
-export const spacing = {
+const spacing = {
   xs: 4,
   sm: 8,
   md: 16,
@@ -8,3 +8,4 @@ export const spacing = {
 };
 
 export type Spacing = keyof typeof spacing;
+export default spacing;
